@@ -14,11 +14,11 @@ public interface ItemBO extends SuperBO {
 
     public boolean updateItem(ItemDTO dto) throws SQLException, ClassNotFoundException;
 
-    public boolean existItem(String code) throws SQLException, ClassNotFoundException;
+    public boolean existItem(String id) throws SQLException, ClassNotFoundException;
 
-    public String generateNewItemCode() throws SQLException, ClassNotFoundException;
+    public String generateNewID() throws SQLException, ClassNotFoundException;
 
-    public boolean deleteItem(String code) throws SQLException, ClassNotFoundException;
+    public boolean deleteItem(String id) throws SQLException, ClassNotFoundException;
 
-    public ItemDTO searchItem(String code) throws SQLException, ClassNotFoundException;
+    public ItemDTO searchItem(String id) throws SQLException, ClassNotFoundException;
 }

@@ -8,7 +8,7 @@ public class DAOFactory {
 
     private DAOFactory(){}
 
-    public static DAOFactory getDaoFactory(){
+    public static DAOFactory getInstance(){
         return (daoFactory == null) ? daoFactory = new DAOFactory() : daoFactory;
     }
     public enum DAOTypes{

@@ -2,7 +2,6 @@ package controller;
 
 import bo.BOFactory;
 import bo.custom.ItemBO;
-import bo.custom.impl.ItemBOImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
@@ -42,7 +41,7 @@ public class ManageItemsFormController {
     public JFXTextField txtUnitPrice;
     public JFXButton btnAddNewItem;
 
-    private ItemBO itemBO = (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ITEM);
+    private ItemBO itemBO = (ItemBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.ITEM);
 
     public void initialize() {
         tblItems.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("code"));
@@ -212,13 +211,15 @@ public class ManageItemsFormController {
         btnAddNewItem.fire();
     }
 
+
     private boolean existItem(String code) throws SQLException, ClassNotFoundException {
         return itemBO.existItem(code);
     }
 
+
     private String generateNewId() {
         try {
-            return itemBO.generateNewItemCode();
+            return itemBO.generateNewID();
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         } catch (ClassNotFoundException e) {
