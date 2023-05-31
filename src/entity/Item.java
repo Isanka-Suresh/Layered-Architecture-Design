@@ -1,43 +1,21 @@
-package model;
+package entity;
 
 import java.math.BigDecimal;
 
-public class CustomDTO {
-    private String id;
-    private String name;
-    private String address;
+public class Item {
     private String code;
     private String description;
     private BigDecimal unitPrice;
     private int qtyOnHand;
 
-    public CustomDTO(String id, String name) {
-        this.id = id;
-        this.name = name;
+    public Item() {
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    public Item(String code, String description, BigDecimal unitPrice, int qtyOnHand) {
+        this.code = code;
+        this.description = description;
+        this.unitPrice = unitPrice;
+        this.qtyOnHand = qtyOnHand;
     }
 
     public String getCode() {
@@ -72,4 +50,13 @@ public class CustomDTO {
         this.qtyOnHand = qtyOnHand;
     }
 
+    @Override
+    public String toString() {
+        return "ItemTM{" +
+                "code='" + code + '\'' +
+                ", description='" + description + '\'' +
+                ", unitPrice=" + unitPrice +
+                ", qtyOnHand=" + qtyOnHand +
+                '}';
+    }
 }
